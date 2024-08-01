@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Form</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
+    <script>
+        function gettime() {
+            const current_date = new Date()
+            document.getElementById('date').value = current_date.getTime()
+        }
+    </script> 
+</head>
+<body>
+  <div class="login-container"> 
+    <h1>Create Your Post!</h1> 
+    <div class="login-form"> 
+      <form action="/create/{{ hashcode }}" method="POST" onsubmit="gettime();">
+        <input type="text" id="title" name="title" placeholder="Title" autocomplete="off" required> 
+        <input type="text" id="content" name="content" placeholder="Content" autocomplete="off" required> 
+      </div> 
+        <input type="submit" value="Post!" class="button">
+        <input type="hidden" id="date" name="date">
+      </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
+  </head>
+<body>
+  <div class="navbar">
+    <a href="/home">Home Page</a>
+  </div>
+  <div class="login-container"> 
+    <h1>Register or Login to your Profile!</h1> 
+    <p>Typing in your username and password will send you to your profile if already registered</p>
+    <div class="login-form"> 
+      <form action="/register" method="POST">
+        <input type="text" id="username" name="username" placeholder="Username" autocomplete="off" required> 
+        <input type="password" id="password" name="password" placeholder="Password (Optional)" autocomplete="off"> 
+      </div> 
+        <input type="submit" value="Register/Login" class="button">
+      </form>
+  </div> 
+</body>
+</html>

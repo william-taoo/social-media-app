@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
+</head>
+<body>
+  <div class="navbar">
+    <a href="/home">Home Page</a>
+  </div>
+  <div class="login-container"> 
+    {% for thing in info %}
+    <form action="/profile/{{ thing[0] }}" method="POST">
+      <input type="hidden" id="hashcode" name="hashcode" value="{{ thing[0] }}">
+      <h1>Profile Page</h1>
+      {% for i in username %}
+      <p>{{ i }}'s personal information</p>
+      {% endfor %}
+      <p>Name: {{ thing[1] }} {{ thing[2] }}</p>
+      <p>Email: {{ thing[3] }}</p>
+      {% endfor %}
+      <input type="submit" value="Create Post" class="button">
+    </form>
+  </div>
+  <div class="post-container">
+    <h1>Your Posts</h1>
+    {% for part in post_info %}
+    <p>{{ part[0] }} - {{ part[1] }}</p> 
+    date of post: {{ part[2] }}
+    {% endfor %}
+  </div>
+</body>
+</html>

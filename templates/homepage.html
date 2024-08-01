@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
+</head>
+<body>
+    <div class="navbar">
+        <a href="/home">Home Page</a>
+        <a href="/register">Register/Login</a>
+      </div>
+      <div class="post-container">
+        <h1>Posts From Other Users!</h1>
+        {% for part in postdata %}
+        <p>User {{ part[3] }} posted: {{ part[0] }} - {{ part[1] }}</p> 
+        date of post: {{ part[2] }}
+        {% endfor %}
+      </div>
+</body>
+</html>
